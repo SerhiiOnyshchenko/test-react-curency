@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/test-react-curency/static/css/main.7acaea2f.css",
+    "main.js": "/test-react-curency/static/js/main.bc46ddd9.js",
+    "index.html": "/test-react-curency/index.html",
+    "main.7acaea2f.css.map": "/test-react-curency/static/css/main.7acaea2f.css.map",
+    "main.bc46ddd9.js.map": "/test-react-curency/static/js/main.bc46ddd9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.bc46ddd9.js"
+  ]
+}
