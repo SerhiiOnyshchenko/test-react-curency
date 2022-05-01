@@ -13,8 +13,12 @@ class Course extends Component {
          amount,
       } = this.props;
       return (
-         <div>
-            <input type="number" value={amount} onChange={onChangeAmount} />
+         <div className="box">
+            <input
+               type="number"
+               value={amount ? amount : 1}
+               onChange={onChangeAmount}
+            />
             <select value={selectCurrency} onChange={onChangeCurrency}>
                {currencyOptions.map(option => (
                   <option key={nanoid(5)} value={option}>

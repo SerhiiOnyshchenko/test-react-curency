@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Course from './Course/Course';
+import Header from './Header/Header';
 
 const BASE_URL = 'https://api.apilayer.com/exchangerates_data/latest';
 
@@ -10,6 +11,8 @@ const App = () => {
    const [exchangeRate, setExchangeRate] = useState();
    const [amount, setAmount] = useState(1);
    const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
+   const [infoResultUSD, setInfoResultUSD] = useState();
+   const [infoResultEUR, setInfoResultEUR] = useState();
 
    let toAmount, fromAmount;
    if (amountInFromCurrency) {
@@ -36,6 +39,22 @@ const App = () => {
             setFromCurrency(data.base);
             setToCurrency(firstCurrency);
             setExchangeRate(data.rates[firstCurrency]);
+         });
+   }, []);
+   useEffect(() => {
+      var myHeaders = new Headers();
+      myHeaders.append('apikey', 'K7Ypu07GJJCN6vbQ91ZFQJPytOWh3yG9');
+
+      var requestOptions = {
+         method: 'GET',
+         redirect: 'follow',
+         headers: myHeaders,
+      };
+      fetch(`${BASE_URL}?base=UAH&symbols=USD,EUR`, requestOptions)
+         .then(res => res.json())
+         .then(data => {
+            setInfoResultUSD((1 / data.rates.USD).toFixed(2));
+            setInfoResultEUR((1 / data.rates.EUR).toFixed(2));
          });
    }, []);
 
@@ -70,22 +89,27 @@ const App = () => {
    }
    return (
       <div>
-         <h1>Convert</h1>
-         <Course
-            currencyOptions={currencyOptions}
-            selectCurrency={fromCurrency}
-            onChangeCurrency={e => setFromCurrency(e.target.value)}
-            onChangeAmount={handelFromAmountChange}
-            amount={fromAmount}
-         />
-         <div className="equals">=</div>
-         <Course
-            currencyOptions={currencyOptions}
-            selectCurrency={toCurrency}
-            onChangeCurrency={e => setToCurrency(e.target.value)}
-            onChangeAmount={handelToAmountChange}
-            amount={toAmount}
-         />
+         <Header infoResultUSD={infoResultUSD} infoResultEUR={infoResultEUR} />
+         <div className="converter">
+            <h1>Currency converter</h1>
+            <div>
+               <Course
+                  currencyOptions={currencyOptions}
+                  selectCurrency={fromCurrency}
+                  onChangeCurrency={e => setFromCurrency(e.target.value)}
+                  onChangeAmount={handelFromAmountChange}
+                  amount={fromAmount}
+               />
+               <div className="quer"></div>
+               <Course
+                  currencyOptions={currencyOptions}
+                  selectCurrency={toCurrency}
+                  onChangeCurrency={e => setToCurrency(e.target.value)}
+                  onChangeAmount={handelToAmountChange}
+                  amount={toAmount}
+               />
+            </div>
+         </div>
       </div>
    );
 };
