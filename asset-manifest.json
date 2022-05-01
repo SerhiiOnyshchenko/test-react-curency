@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/test-react-curency/static/css/main.5e08e389.css",
-    "main.js": "/test-react-curency/static/js/main.0ac42f05.js",
+    "main.css": "/test-react-curency/static/css/main.6122823c.css",
+    "main.js": "/test-react-curency/static/js/main.ca0c5893.js",
+    "static/media/arrow-mark.png": "/test-react-curency/static/media/arrow-mark.1f37b384561cfcc0e5c4.png",
     "index.html": "/test-react-curency/index.html",
-    "main.5e08e389.css.map": "/test-react-curency/static/css/main.5e08e389.css.map",
-    "main.0ac42f05.js.map": "/test-react-curency/static/js/main.0ac42f05.js.map"
+    "main.6122823c.css.map": "/test-react-curency/static/css/main.6122823c.css.map",
+    "main.ca0c5893.js.map": "/test-react-curency/static/js/main.ca0c5893.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e08e389.css",
-    "static/js/main.0ac42f05.js"
+    "static/css/main.6122823c.css",
+    "static/js/main.ca0c5893.js"
   ]
 }
